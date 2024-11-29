@@ -1,0 +1,20 @@
+.trendFilmItem{
+    text-align: start;
+}
+.linkFilm{
+    color: rgb(55, 63, 211);
+    text-decoration: underline;
+}
+
+.listOfFilms{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+.trendHeader{
+    font-size: 1.5em;
+    color: rgb(29, 28, 28);
+    font-weight: 500;
+    margin-bottom: 5px;
+}

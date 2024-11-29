@@ -1,0 +1,59 @@
+.movieDetails{
+    display: flex;
+    flex-wrap: wrap; /* İçerik taşarsa alt satıra geçmesini sağlar */
+    gap: 20px; /* Elemanlar arasındaki boşluk */
+    margin: 20px;
+    flex-direction: column;
+}
+.ımageSection{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.poster{
+    margin-right: 1em;
+    width: 20em;
+    flex: 1; /* Görsel, genişleyebilecek alana adapte olur */
+    max-width: 300px; /* Görsel için maksimum genişlik */
+    height: 30em; 
+
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    flex: 2; /* Detaylar, görselin 2 katı alan kaplar */
+}
+.trendFilmDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.overview, .genres{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 0;
+
+}
+.trendFilmItem{
+    display: flex;
+    flex-direction: row;
+    gap:2em;
+    margin-bottom: 2em;
+}
+p{
+    text-align: start;
+    margin-bottom: 0;
+}
+.filmTitle{
+    text-align: left;
+    margin-bottom: 0;
+}
+
+h2{
+    margin-bottom: 0;
+    text-align: left;
+}

@@ -1,0 +1,22 @@
+
+.navBox{
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+    margin-left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    z-index: 1000;
+    gap: 20px;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #fff;
+}
+
+.navBox a {
+    text-decoration: none; /* Removes default underline from links */
+    color: #333; /* Link color */
+    margin-right: 20px; /* Adds spacing between links */
+    text-align: left; /* Aligns text to the left */
+  }
