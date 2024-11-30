@@ -14,10 +14,10 @@ const MovieReviews = ({movieId}) => {
     useEffect(() => {
       const fetchReview = async () => {
         try {
-          const response = await axios.get(`${BASE_URL}/movie/${movieId}//reviews`, {
+          const response = await axios.get(`${BASE_URL}/movie/${movieId}/reviews`, {
             params: { api_key: API_KEY },
           });
-          setReviews(response.data.results);
+          setReviews(response.data.results || []); // Ensure it's an array
           setLoading(false);
         } catch (error) {
           console.error(error);
@@ -32,34 +32,26 @@ const MovieReviews = ({movieId}) => {
     if (loading) return <p>Loading reviews...</p>;
     if (error) return <p>{error}</p>;
   
-  return (
-    <div className={Styles.reviews}>
-        <ul>
-            {reviews.map((rev,index)=>(
-                <li key={index}>rev</li>
-            ))}
-        </ul>
-    </div>
-   
-
-  )
-}
-
-MovieReviews.propTypes={
-    movieId:PropTypes.number.isRequired
-}
-export default MovieReviews
-
-/*
+    return (
+      <div className={Styles.reviews}>
         {reviews.length > 0 ? (
           <ul>
             {reviews.map((review) => (
               <li key={review.id} className={Styles.reviewItem}>
-                <h3>Author: {review.author}</h3>
+                <p><strong>Author:</strong> {review.author}</p>
                 <p>{review.content}</p>
               </li>
             ))}
           </ul>
         ) : (
           <p>No reviews available for this movie.</p>
-        )} */
+        )}
+      </div>
+    );
+  };
+  
+  MovieReviews.propTypes = {
+    movieId: PropTypes.string.isRequired, // Updated to string
+  };
+  
+export default MovieReviews

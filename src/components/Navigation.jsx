@@ -15,6 +15,7 @@ const Navigation = ({trendMovies}) => {
             <NavLink to='/movies' className={Styles.movies}>Movies</NavLink>
         </nav>
         <Routes>
+            <Route path='/' element={<HomePage trendMovies={trendMovies}/>}></Route>
             <Route path='/home' element={<HomePage trendMovies={trendMovies}/>}></Route>
             <Route path="/movie/:movieId" element={<MovieDetailsPage />} />
             <Route path='/movies' element={<MoviesPage trendMovies={trendMovies} />}></Route>

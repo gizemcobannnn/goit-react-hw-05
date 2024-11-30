@@ -1,16 +1,18 @@
-import { useEffect, useState, Link } from 'react';
-import { useParams, Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useParams, Link} from 'react-router-dom';
 import axios from 'axios';
 import Styles from './MovieDetailsPage.module.css';
 import MovieCast from '../components/MovieCast';
 import MovieReviews from '../components/MovieReviews';
+
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams(); // Get movieId from the URL
   const [movieDetails, setMovieDetails] = useState(null);
   const [loading, setLoading] = useState(true); // To handle loading state
   const [error, setError] = useState(null); // To handle error state
- // const [reviewFilm, setReviewFilm] = useState("");
+  const [selectedTab, setSelectedTab] = useState(null);
+
   console.log(movieId)
   const API_KEY = "644b79412dfd2adb3be93f1d9c6093ec";
   const BASE_URL = "https://api.themoviedb.org/3";
@@ -65,24 +67,24 @@ const MovieDetailsPage = () => {
       <div className={Styles.additional}>
         <h2>Additional Information</h2>
         <ul>
-          <li>
-            <Link to={`cast`} className={Styles.linkFilm}>
+          <li className={Styles.linkCast}>
+            <Link to="#"  className={`${Styles.link} ${selectedTab === "cast" ? Styles.active : ""}`}
+              onClick={() => setSelectedTab("cast")}>
               Cast
             </Link>
           </li>
-          <li>
-            <Link to={`reviews`} className={Styles.linkFilm}>
+          <li className={Styles.linkReviews}>
+            <Link to="#" className={`${Styles.link} ${selectedTab === "reviews" ? Styles.active : ""}`}
+              onClick={() => setSelectedTab("reviews")} >
               Reviews
             </Link>
           </li>
         </ul>
 
-        {/* Routes for Cast and Reviews */}
-        <Routes> 
-          <Route path="cast" element={<MovieCast movieId={movieId} />} />
-          <Route path="reviews" element={<MovieReviews movieId={movieId} />} />
-        </Routes>
-        
+      </div>
+      <div className={Styles.tabContent}>
+        {selectedTab === "cast" && <MovieCast movieId={movieId} />}
+        {selectedTab === "reviews" && <MovieReviews movieId={movieId} />}
       </div>
     </div>
   );
