@@ -67,14 +67,14 @@ const MoviesPage = () => {
           <ul className={Styles.listOfSearch}>
             {movieList.map((movie) => (
               <li key={movie.id}>
-                <Link to={`/movies/${movie.id}`} className={Styles.movieLink}>
+                <Link to={`/movie/${movie.id}`} className={Styles.movieLink}>
                   {movie.title}
                 </Link>
               </li>
             ))}
           </ul>
         ) : (
-          !loading && !error &&  <p>No movies found. Try a different search.</p>
+          !loading && !error &&  <p style={{color:'black'}}>No movies found. Try a different search.</p>
         )}
       </div>
     </div>
